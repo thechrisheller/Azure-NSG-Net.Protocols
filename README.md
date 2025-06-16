@@ -87,7 +87,11 @@ We'll observe various network traffic to and from Azure VMs with Wireshark as we
 
 ![Azure-Lab Part2f](https://github.com/user-attachments/assets/b26168ea-5bc0-4717-ac2d-83df4325432a)
 
-  - Because the icmp filter is on in Wireshark, we are only seeing icmp traffic over the network. This filter allows us to see our windows-vm (10.0.0.4) send the request to the linux-vm (10.0.0.5), and the Linux-VM sends a reply back to the Windows-VM. Wireshark and PowerShell both show that we just successfully tested the connection between the two VMs!
+  - Because the icmp filter is on in Wireshark, we are only seeing icmp traffic over the network. This filter allows us to see our Windows-VM (10.0.0.4) send the request to the Linux-VM (10.0.0.5), and the Linux-VM sends a reply back to the Windows-VM. Wireshark and PowerShell both show that we just successfully tested the connection between the two VMs!
 
+![part 2 final](https://github.com/user-attachments/assets/89dfc540-2dd2-4c94-a653-2376f84c2441)
+
+  - In PowerShell, initiate a perpetual ping to the Linux-VM with the command ping 10.0.0.5 -t. This command tells the Windows-VM to ping the Linux-VM nonstop
+.
 <h2>Step 3: Use NSG (Firewall) to deny ping</h2>
 
