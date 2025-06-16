@@ -88,10 +88,45 @@ We'll observe various network traffic to and from Azure VMs with Wireshark as we
 ![Azure-Lab Part2f](https://github.com/user-attachments/assets/b26168ea-5bc0-4717-ac2d-83df4325432a)
 
   - Because the icmp filter is on in Wireshark, we are only seeing icmp traffic over the network. This filter allows us to see our Windows-VM (10.0.0.4) send the request to the Linux-VM (10.0.0.5), and the Linux-VM sends a reply back to the Windows-VM. Wireshark and PowerShell both show that we just successfully tested the connection between the two VMs!
+ - In PowerShell, initiate a perpetual ping to the Linux-VM with the command ping 10.0.0.5 -t. This command tells the Windows-VM to ping the Linux-VM nonstop
 
 ![part 2 final](https://github.com/user-attachments/assets/89dfc540-2dd2-4c94-a653-2376f84c2441)
 
-  - In PowerShell, initiate a perpetual ping to the Linux-VM with the command ping 10.0.0.5 -t. This command tells the Windows-VM to ping the Linux-VM nonstop
-.
 <h2>Step 3: Use NSG (Firewall) to deny ping</h2>
+
+  - Head back to Azure and go to your Linux VM settings
+  - Go to Network Settings
+  - Inbound security rules
+  - Select the Network Security Group
+
+![Azure-Lab Part3a](https://github.com/user-attachments/assets/86c91386-502a-4a69-a339-26079a662f66)
+
+  - +Add
+  - Action: Deny
+  - Priority: 290
+  - Select "Add"
+
+![Azure-Lab Part3b](https://github.com/user-attachments/assets/6e65f8c0-a312-4b0b-b0ae-05a821538b23)
+
+  - Notice we have added an Inbound security rule
+
+![Azure-Lab Part3c](https://github.com/user-attachments/assets/a3f21ee7-2d3e-454d-bbbe-7706a375875b)
+
+  - Go back to Powershell and Wireshark and what happened
+
+![Azure-Lab Part3d](https://github.com/user-attachments/assets/3490a0d7-8413-4594-b0a4-c2dac7eeb845)
+
+  - The ping request starts to time out in PowerShell because of the new rule we created in the Network Security Group.
+  - We can see exactly when the rule took effect and started to deny the ping request from the Windows-VM in Wireshark.
+  - Notice when the reply and request change to just a request. 
+
+![Azure-Lab Part3e](https://github.com/user-attachments/assets/bce654f5-470b-4706-bbb3-9a99364c2702)
+
+  - We can delete this rule, and we have completed this part of the lab
+
+![Azure-Lab Part3f](https://github.com/user-attachments/assets/b08947bf-e553-4dd4-9a79-bfab2dbb9eda)
+
+  - Before moving to the next part in PowerShell and do "CTRL + C" to stop the repeating of the Linux scan.
+
+<h2>Step 4: Observe SSH & DHCP Traffic</h2>
 
