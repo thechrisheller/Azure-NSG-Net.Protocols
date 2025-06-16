@@ -49,14 +49,45 @@ We'll observe various network traffic to and from Azure VMs with Wireshark as we
 
 ![Azure-Lab Part1d](https://github.com/user-attachments/assets/7e5c20d3-018e-4572-8b19-10e01beba93a)
 
-  - Once you're all set up inside the VM, go to the web browser and type in www.wireshark.com and click download
+  - Once you're all set up inside the VM, go to the web browser and type in www.wireshark.org and click download
   - From there, select Window x64 Installer
 
 ![Azure-Lab Part1e](https://github.com/user-attachments/assets/1176db82-a1b7-4e19-a3d3-74ca84cdc4b4)
 
 ![Azure-Lab Part1f](https://github.com/user-attachments/assets/af531754-85bf-4e38-a30b-0661839bf88f)
 
-  - It will have you install IMAP as well go ahead and do so
 
 <h2>Step 2: Observe ICMP Traffic</h2>
+
+  - Open Wireshark and select where it says "Ethernet"
+  - Once you do that, you'll notice the shark fin will turn blue in the upper left-hand corner, and select it.
+
+![Azure-Lab Part2a](https://github.com/user-attachments/assets/e41913bb-081b-4274-964f-3b6b9349467c)
+
+  - You will now see a bunch of traffic flowing through the network
+
+![Azure-Lab Part2b](https://github.com/user-attachments/assets/adbb630f-460a-4cf9-8baa-d0429550d03f)
+
+  - At the filter bar above, type "icmp" and "enter"
+  - Notice the traffic is gone
+  - We are now just filtering the icmp traffic
+
+![Azure-Lab Part2c](https://github.com/user-attachments/assets/61d43960-37ee-4bf9-b15d-555dd2b0e6ad)
+
+  - Now lets go back and get the private IP Address from the linux machine we created
+
+![Azure-Lab Part2d](https://github.com/user-attachments/assets/a6938161-9be1-4143-95e1-13772c9d9ffb)
+
+  - Back into the VM on Windows and open PowerShell as an admin from your Windows search bar
+
+![Azure-Lab Part2e](https://github.com/user-attachments/assets/721fb11a-11d2-4e06-b849-f0ebbaa13ca9)
+
+  - From PowerShell, type "ping 10.0.0.5" or whatever the private address is in your VM
+  - Notice in Wireshark what happens
+
+![Azure-Lab Part2f](https://github.com/user-attachments/assets/b26168ea-5bc0-4717-ac2d-83df4325432a)
+
+  - Because the icmp filter is on in Wireshark, we are only seeing icmp traffic over the network. This filter allows us to see our windows-vm (10.0.0.4) send the request to the linux-vm (10.0.0.5), and the Linux-VM sends a reply back to the Windows-VM. Wireshark and PowerShell both show that we just successfully tested the connection between the two VMs!
+
+<h2>Step 3: Use NSG (Firewall) to deny ping</h2>
 
