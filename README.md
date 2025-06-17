@@ -188,7 +188,7 @@ We'll observe various network traffic to and from Azure VMs with Wireshark as we
 
 ![Azure-Lab Part5a](https://github.com/user-attachments/assets/44774645-602e-4a24-86c3-f5f1b476900f)
 
-  - Then type 130.211.198.204
+  - Then type 130.211.198.204 in the browser
 
 ![Azure-Lab Part5b](https://github.com/user-attachments/assets/5853cd34-ac14-4f2a-b436-1c14ca4fbf61)
 
@@ -196,13 +196,16 @@ We'll observe various network traffic to and from Azure VMs with Wireshark as we
   - Something to think about is that the IP address is related to the animation; however, most sites you can't access directly to the site with the IP address. It's because we probably don't have access, or there is a protocol in place with DNS, because DNS translates human-readable language into something the machine can read.
 
   - Let's move on
-  - In Wireshark type tcp.port == 3389 and enter
+  - In Wireshark, type tcp.port == 3389 and enter
   - Look at all the traffic flowing through
-  - tcp port 3389 is the RDP
+  - TCP port 3389 is the RDP
+    
 ![Azure-Lab Part5c](https://github.com/user-attachments/assets/d66aa05a-cfd0-4a88-a965-52bc3fc86645)
 
-  - I am unsure why maybe it can be explained to me in the future, but when you type RDP in Wireshark, less traffic flows through there
+  - I am unsure why, maybe it can be explained to me in the future, but when you type RDP in Wireshark, less traffic flows through there
   - I guess that under protocol, there is a label, and maybe the traffic through the remote desktop flows through another label, but I am probably wrong. If you get a hold of me, let me know.
 
 ![Azure-Lab Part5d](https://github.com/user-attachments/assets/41adca74-6f1d-47b4-bf4a-6b4495fe48c7)
 
+<h2>Conclusion</h2>
+- We have completed this lab. We connected to RDP, looked at some different traffic using Wireshark, and we connected to our Linux-VM through Windows using PowerShell. We also created a security rule to deny traffic that is related to the Cyber world. Make sure that you turn your VMs off, both Windows and Linux, or if you are done using them, then go ahead and delete them. As always, thank you for following along, and hopefully, you learned something because I learned a lot. 
