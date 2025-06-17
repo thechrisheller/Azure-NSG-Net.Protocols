@@ -130,3 +130,53 @@ We'll observe various network traffic to and from Azure VMs with Wireshark as we
 
 <h2>Step 4: Observe SSH & DHCP Traffic</h2>
 
+  - Filter ssh in Wireshark
+  - Then, over in PowerShell, you will want to type in "ssh" and then your username from your Linux VM, and then right after @ and the private IP. For example, mine was "userlinux@10.0.0.5", then hit enter.
+
+![Azure-Lab Part4a](https://github.com/user-attachments/assets/92097add-355d-4128-be27-4110668db560)
+
+  - You will then notice some information comes up in Wireshark, but not much
+  - Let's continue, enter in your password for your Linux VM and then hit enter
+
+![Azure-Lab Part4b](https://github.com/user-attachments/assets/1bd71a8f-df7d-477d-8c62-fb6142b3096b)
+
+  - You can play around in PowerShell with some Linux commands, but when you're done, just type exit
+  - Just to note: this connection is secure and encrypted
+  - You will notice that a little bit more information will be displayed to you.
+
+![Azure-Lab Part4c](https://github.com/user-attachments/assets/3d7aa04a-3fa9-4971-99d3-5ee8a52681af)
+
+  - Just to note: this next section is extremely tricky. At least for me, it was anyway, so I will do my best to explain my process and dumb it down as best as I can. 
+  - Let's filter DHCP in Wireshark
+  - Now, over in PowerShell, type in ipconfig /renew and then enter
+  - Not a whole lot happened
+  - DO NOT type in ipconfig /release because you will crash your VM, and it will literally take what seems like forever for it to be usable again. 
+
+![Azure-Lab Part4d](https://github.com/user-attachments/assets/73c41cfa-45a1-4fab-bccb-ba6e995970d5)
+
+  - Let's create some DHCP Traffic
+  - Open a Notepad and type in ipconfig /release, and then under type ipconfig /renew
+  - Then File > Save
+  - From there, type c:\programdata and then enter and save it into that folder as dhcp.bat as all files. The reason I say to do it that way is because you will not be able to find that folder by going the route of This PC > Windows (C:) > ProgramData because the folder, for lack of a better term, is not visible that way.
+  - This is the part where I got hung up on, and hopefully this dumbs it down as best as possible
+
+![Azure-Lab Part4d](https://github.com/user-attachments/assets/22a3e491-12ce-4072-b835-6a9e40a24ef3)
+
+![Azure-Lab Part4e](https://github.com/user-attachments/assets/c516ebd7-fd51-45f3-a24c-ae9fce20962f)
+
+![Azure-Lab Part4f](https://github.com/user-attachments/assets/2991bf8c-a5db-41d8-9787-118911d15cc2)
+
+  - Let's go back to PowerShell now, and type in cd c:\programdata, then enter
+  - ls, then enter
+  - You'll get a little bit of information, but let's move on
+  - Type the file we just created .\dhcp.bat and let's see what happens
+
+![Azure-Lab Part4g](https://github.com/user-attachments/assets/964f8e58-759c-48b3-9665-78dd64f4d308)
+
+  - We will notice that some things will happen here
+  - The Windows VM will temporarily stop and then start
+  - We will notice that we have created some DHCP traffic in Wireshark
+
+![Azure-Lab Part4h](https://github.com/user-attachments/assets/29807ce2-4784-4d2b-b864-5f27f51a1c19)
+
+
