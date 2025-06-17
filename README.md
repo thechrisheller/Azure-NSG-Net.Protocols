@@ -33,6 +33,7 @@ We'll observe various network traffic to and from Azure VMs with Wireshark as we
 <h2>Steps on Actions, Inspecting, and Observations</h2>
 
 <h2>Step 1: Connect to VM using RDP & Install Wireshark</h2>
+
   - Make sure that your Windows and Linux VMs are running
   - If they are not, turn them on
 
