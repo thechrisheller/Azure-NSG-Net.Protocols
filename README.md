@@ -208,4 +208,5 @@ We'll observe various network traffic to and from Azure VMs with Wireshark as we
 ![Azure-Lab Part5d](https://github.com/user-attachments/assets/41adca74-6f1d-47b4-bf4a-6b4495fe48c7)
 
 <h2>Conclusion</h2>
-- We have completed this lab. We connected to RDP, looked at some different traffic using Wireshark, and we connected to our Linux-VM through Windows using PowerShell. We also created a security rule to deny traffic that is related to the Cyber world. Make sure that you turn your VMs off, both Windows and Linux, or if you are done using them, then go ahead and delete them. As always, thank you for following along, and hopefully, you learned something because I learned a lot. 
+
+We have completed this lab. We connected to RDP, looked at some different traffic using Wireshark, and we connected to our Linux-VM through Windows using PowerShell. We also created a security rule to deny traffic that is related to the Cyber world. Make sure that you turn your VMs off, both Windows and Linux, or if you are done using them, then go ahead and delete them. As always, thank you for following along, and hopefully, you learned something because I learned a lot. 
