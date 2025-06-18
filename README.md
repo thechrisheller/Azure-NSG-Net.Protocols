@@ -2,7 +2,7 @@
 ![microsoft-azure](https://github.com/user-attachments/assets/b0706064-5fed-4587-8418-3a7f0e6fc896) 
 
 <h1>Observing Network Traffic, and Network Security Groups (NSGs)</h1>
-We'll observe various network traffic to and from Azure VMs with Wireshark as well as play around with Network Security Groups.
+We will observe various network traffic to and from Azure VMs using Wireshark, as well as experiment with Network Security Groups.
 
 <h2>Prerequisite</h2>
 
